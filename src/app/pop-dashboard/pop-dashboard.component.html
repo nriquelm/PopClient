@@ -3,7 +3,7 @@
 
         <h1 style="color: white">DBZ Pop Manager</h1>
         <div class="d-flex">
-            <button  type="button" data-toggle="modal" data-target="#exampleModal" class="btn btn-success">Add Pop</button>
+            <button (click)="open(content)" type="button" data-toggle="modal" data-target="#exampleModal" class="btn btn-success">Add Pop</button>
         </div>
 
     </div>
@@ -23,12 +23,12 @@
     </thead>
     <tbody>
         <tr>
-            <td>1</td>
-            <td>Goku</td>
-            <td>5</td>
-            <td>25.00</td>
-            <td>Dragon Ball Z</td>
-            <td>In Stock</td>
+            <td>78</td>
+            <td>name</td>
+            <td>6</td>
+            <td>89</td>
+            <td>dbz</td>
+            <td>out</td>
             <td>
                 <button class="btn btn-info">Edit</button>
                 <button class="btn btn-danger mx-3">Delete</button>
@@ -36,24 +36,69 @@
         </tr>
     </tbody>
 </table>
-  
-  
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          ...
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
-      </div>
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Add Pop</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
     </div>
-</div>
+    <div class="modal-body">
+      <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+        <div class="form-group">
+          <label for="id">ID</label>
+          <div class="input-group">
+            <input id="id" class="form-control" ngModel>
+          </div>
+        </div>
+
+        <div class="form-group">
+            <label for="name">Name</label>
+            <div class="input-group">
+              <input id="name" class="form-control" ngModel>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="quantity">Quantity</label>
+            <div class="input-group">
+              <input id="quantity" class="form-control" ngModel>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="cost">Cost</label>
+            <div class="input-group">
+              <input id="cost" class="form-control" ngModel>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="series">Series</label>
+            <div class="input-group">
+              <input id="series" class="form-control" ngModel>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="status">Status</label>
+            <div class="input-group">
+              <input id="status" class="form-control" ngModel>
+            </div>
+        </div>
+
+        <!--
+        <div class="border text-center">
+            <button data-dismiss="modal" class="btn btn-info">Submit</button>
+        </div>
+        -->
+
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button data-dismiss="modal" type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Add</button>
+    </div>
+  </ng-template>
+  
+
