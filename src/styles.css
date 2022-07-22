@@ -1,4 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+@import "~font-awesome/css/font-awesome.css";
+
 .container{
-    margin-top:5%;
+    margin-top:10%;
+}
+
+.fa{
+    font-size: 50%;
+}
+
+.row{
+    margin-bottom: 15px;
+}
+
+.jumbotron{
+    background-color: rgb(247, 126, 83);
 }

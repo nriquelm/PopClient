@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { NgForm } from '@angular/forms';
+import { FormGroup, NgForm } from '@angular/forms';
 import { Observable } from 'rxjs';
+//import { FormBuilder } from '@angular/forms';
 
 
 export class Pop {
@@ -24,16 +25,28 @@ export class Pop {
 })
 export class PopDashboardComponent implements OnInit {
 
+  closeResult!: string;
   pops!: Pop[];
 
-  closeResult!: string;
+  //formValue! : FormGroup;
   constructor(
     private httpClient: HttpClient,
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    //private formBuilder: FormBuilder
   ) { }
 
   ngOnInit(): void {
     this.findAll();
+    /*
+    this.formValue = this.formBuilder.group({
+      id: [''],
+      name: [''],
+      quantity: [''],
+      cost: [''],
+      series: [''],
+      status: ['']
+    })
+    */
   }
 
   url = 'http://localhost:8080/pop-warehouse/pops/';
