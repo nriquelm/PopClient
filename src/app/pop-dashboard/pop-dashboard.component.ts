@@ -4,8 +4,6 @@ import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormBuilder, FormGroup, NgForm } from '@angular/forms';
 import { Observable } from 'rxjs';
 
-//import { FormBuilder } from '@angular/forms';
-
 
 export class Pop {
 
@@ -32,7 +30,6 @@ export class PopDashboardComponent implements OnInit {
   editForm!: FormGroup;
   private deleteId!: number;
 
-  //formValue! : FormGroup;
   constructor(
     private httpClient: HttpClient,
     private modalService: NgbModal,
@@ -128,36 +125,4 @@ export class PopDashboardComponent implements OnInit {
       this.modalService.dismissAll();
     })
   }
-/*
-  findAll(): Observable<Pop[]>{
-    return this.httpClient.get<Pop[]>(this.url);
-  }
-
-
-  save(pop: Pop): Observable<Pop>{
-    return this.httpClient.post<Pop>(this.url, pop);
-  }
-
-
-  findById(id:number): Observable<any> {
-    return this.httpClient.get(this.url + id);
-  }
-
-  findByName(name: string): Observable<any> {
-    return this.httpClient.get(this.url + name);
-  }
-  
-  updatePrice(id: number, cost: number): Observable<Pop>{
-    return this.httpClient.put<Pop>(this.url + id, cost);
-  }
-  
-
-  deleteByName(name: string): Observable<any>{
-    return this.httpClient.delete(this.url + name);
-  }
-
-  delete(id: number): Observable<any>{
-    return this.httpClient.delete(this.url + id);
-  }
-*/
 }
