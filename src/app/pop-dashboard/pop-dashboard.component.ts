@@ -93,7 +93,23 @@ export class PopDashboardComponent implements OnInit {
       centered: true,
       backdrop: 'static',
       size: 'lg'
-    })
+    });
+    this.editForm.patchValue({
+      id: pop.id,
+      name: pop.name,
+      quantity: pop.quantity,
+      cost: pop.cost,
+      series: pop.series,
+      status: pop.status
+    });
+  }
+
+  onSave(){
+    const editUrl = this.url + this.editForm.value.id;
+    this.httpClient.put(editUrl, this.editForm.value).subscribe((results) => {
+      this.ngOnInit();
+      this.modalService.dismissAll();
+    });
   }
 /*
   findAll(): Observable<Pop[]>{
