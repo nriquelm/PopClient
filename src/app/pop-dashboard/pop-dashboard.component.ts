@@ -30,6 +30,7 @@ export class PopDashboardComponent implements OnInit {
   pops!: Pop[];
   pop!: Pop;
   editForm!: FormGroup;
+  private deleteId!: number;
 
   //formValue! : FormGroup;
   constructor(
@@ -110,6 +111,22 @@ export class PopDashboardComponent implements OnInit {
       this.ngOnInit();
       this.modalService.dismissAll();
     });
+  }
+
+  openDelete(targetModal: any, pop: Pop){
+    this.deleteId = pop.id;
+    this.modalService.open(targetModal, {
+      backdrop: 'static',
+      size: 'lg'
+    });
+  }
+
+  onDelete(){
+    const deleteUrl = this.url + this.deleteId;
+    this.httpClient.delete(deleteUrl).subscribe((result) => {
+      this.ngOnInit();
+      this.modalService.dismissAll();
+    })
   }
 /*
   findAll(): Observable<Pop[]>{
