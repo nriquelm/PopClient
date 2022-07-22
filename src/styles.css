@@ -17,6 +17,8 @@
 
 .jumbotron{
     background-color: rgb(240, 87, 31);
+    border-style: solid;
+    border-width: thin;
 }
 
 .flex-container{
@@ -59,3 +61,34 @@
     font-weight: bold;
     color: white;
 }
+
+.navbar-brand{
+    font-family: OCR A Std, monospace;
+    font-weight: bold;
+}
+
+.op1{
+    margin-right: 10px;
+}
+
+.op2{
+    margin-left: 10px;
+}
+
+.container-fluid{
+    background-color: rgb(240, 87, 31);
+    padding: 15px;
+}
+
+.nav-link:hover{
+    background-color: rgba(134, 82, 245, 0.504);
+}
+
+.nav-link{
+    color: white;
+}
+
+.confirm-delete{
+    text-align: center;
+}
+

@@ -1,7 +1,7 @@
 <nav class="navbar navbar-dark bg-dark">
     <div class="container-fluid">
 
-        <h1 style="color: white">Manage Pops</h1>
+        <h3 class="manage" style="color: white">Manage Pops</h3>
         <div class="d-flex">
             <button (click)="open(content)" type="button" data-toggle="modal" data-target="#exampleModal" class="btn btn-success">Add Pop</button>
         </div>
@@ -31,8 +31,8 @@
             <td>{{pop.series}}</td>
             <td>{{pop.status}}</td>
             <td>
-                <button class="btn btn-sm btn-warning" (click)="openEdit(contentEdit, pop)">Edit</button>
-                <button class="btn btn-sm btn-danger" (click)="openDelete(contentDelete, pop)">Delete</button>
+                <button class="op1 btn btn-sm btn-warning" (click)="openEdit(contentEdit, pop)">Edit</button> 
+                <button class="op2 btn btn-sm btn-danger" (click)="openDelete(contentDelete, pop)">Delete</button>
             </td>
         </tr>
     </tbody>
@@ -171,9 +171,10 @@
       </button>
     </div>
     <div class="modal-body">
-      <h2>Are you sure you want to delete this record.</h2>
+      <h2 class="confirm-delete">Are you sure you want to let this pop go?</h2>
+      <img class="sad-gohan" src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/4b165ba0-4ae4-418a-926d-c71e78d1c0b4/ddwq9pf-753ae068-6c09-4ddc-9873-01e91ba380b3.png/v1/fill/w_735,h_601,strp/sad_kid_gohan__dbz__by_ryrythehtffan_ddwq9pf-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NjAxIiwicGF0aCI6IlwvZlwvNGIxNjViYTAtNGFlNC00MThhLTkyNmQtYzcxZTc4ZDFjMGI0XC9kZHdxOXBmLTc1M2FlMDY4LTZjMDktNGRkYy05ODczLTAxZTkxYmEzODBiMy5wbmciLCJ3aWR0aCI6Ijw9NzM1In1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.QCcrER2LdH4kWGAUsz0-4s2Nt_d0TgeXULkIw-9TAiI" alt="Sad kid Gohan">
       <div class="border text-center"> 
-        <button data-dismiss="modal" class="btn btn-danger" (click)="onDelete()">Yes, Delete!</button> 
+        <button data-dismiss="modal" class="btn btn-danger" (click)="onDelete()">Yes, Ka-Me-Ha-Me-Haaaaa!</button> 
       </div>
     </div>
     <div class="modal-footer">
