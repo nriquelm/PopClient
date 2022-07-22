@@ -3,7 +3,19 @@ import { HttpClient } from '@angular/common/http';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { NgForm } from '@angular/forms';
 import { Observable } from 'rxjs';
-import Pop from '../models/Pop';
+
+
+export class Pop {
+
+  public id!: number;
+  public name!: string;
+  public quantity!: number;
+  public cost!: number;
+  public series!: string;
+  public status!: string;
+  public !: string;
+
+}
 
 @Component({
   selector: 'app-pop-dashboard',
@@ -11,6 +23,8 @@ import Pop from '../models/Pop';
   styleUrls: ['./pop-dashboard.component.css']
 })
 export class PopDashboardComponent implements OnInit {
+
+  pops!: Pop[];
 
   closeResult!: string;
   constructor(
@@ -20,6 +34,14 @@ export class PopDashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.findAll();
+  }
+
+  url = 'http://localhost:8080/pop-warehouse/pops/';
+  findAll(){
+    this.httpClient.get<any>(this.url).subscribe( response => {
+      console.log(response);
+      this.pops = response;
+    })
   }
 
   open(content: any){
@@ -39,8 +61,6 @@ export class PopDashboardComponent implements OnInit {
       return `with: ${reason}`;
     }
   }
-
-  url = 'http://localhost:8080/pops/';
   
   onSubmit(f: NgForm){
     
@@ -49,16 +69,16 @@ export class PopDashboardComponent implements OnInit {
     });
     this.modalService.dismissAll();
   }
-
+/*
   findAll(): Observable<Pop[]>{
     return this.httpClient.get<Pop[]>(this.url);
   }
 
-/*
+
   save(pop: Pop): Observable<Pop>{
     return this.httpClient.post<Pop>(this.url, pop);
   }
-*/
+
 
   findById(id:number): Observable<any> {
     return this.httpClient.get(this.url + id);
@@ -80,5 +100,5 @@ export class PopDashboardComponent implements OnInit {
   delete(id: number): Observable<any>{
     return this.httpClient.delete(this.url + id);
   }
-
+*/
 }

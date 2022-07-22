@@ -22,13 +22,13 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td>78</td>
-            <td>name</td>
-            <td>6</td>
-            <td>89</td>
-            <td>dbz</td>
-            <td>out</td>
+        <tr *ngFor="let pop of pops">
+            <td>{{pop.id}}</td>
+            <td>{{pop.name}}</td>
+            <td>{{pop.quantity}}</td>
+            <td>{{pop.cost}}</td>
+            <td>{{pop.series}}</td>
+            <td>{{pop.status}}</td>
             <td>
                 <button class="btn btn-info">Edit</button>
                 <button class="btn btn-danger mx-3">Delete</button>
