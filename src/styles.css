@@ -2,6 +2,7 @@
 @import "~bootstrap/dist/css/bootstrap.css";
 @import "~font-awesome/css/font-awesome.css";
 
+
 .container{
     margin-top:10%;
 }
@@ -15,5 +16,46 @@
 }
 
 .jumbotron{
-    background-color: rgb(247, 126, 83);
+    background-color: rgb(240, 87, 31);
+}
+
+.flex-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    background-image: url(https://i.pinimg.com/736x/ad/86/e2/ad86e24238b3c8e16d3c774ec7880efe.jpg);
+}
+
+.cards{
+    display: flex;
+    padding: 1.5em .5em .5em;
+    border-radius: 2em;
+    text-align: center;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.392);
+}
+
+.card-title{
+    text-align: center;
+    background-color: rgb(240, 87, 31);
+    padding: 15px;
+    border-radius: 3em;
+}
+
+.img{
+    border-radius: 4em; 
+}
+
+.display-4{
+    text-align: center;
+    font-family: OCR A Std, monospace;
+    color: rgb(108, 47, 169);
+    font-weight: bold;
+}
+
+.lead{
+    text-align: center;
+    font-weight: bold;
+    color: white;
 }
