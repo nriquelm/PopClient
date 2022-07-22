@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { FormGroup, NgForm } from '@angular/forms';
+import { FormBuilder, FormGroup, NgForm } from '@angular/forms';
 import { Observable } from 'rxjs';
+
 //import { FormBuilder } from '@angular/forms';
 
 
@@ -27,26 +28,28 @@ export class PopDashboardComponent implements OnInit {
 
   closeResult!: string;
   pops!: Pop[];
+  pop!: Pop;
+  editForm!: FormGroup;
 
   //formValue! : FormGroup;
   constructor(
     private httpClient: HttpClient,
     private modalService: NgbModal,
-    //private formBuilder: FormBuilder
+    private fb: FormBuilder
   ) { }
 
   ngOnInit(): void {
     this.findAll();
-    /*
-    this.formValue = this.formBuilder.group({
+
+    this.editForm = this.fb.group({
       id: [''],
       name: [''],
       quantity: [''],
       cost: [''],
       series: [''],
       status: ['']
-    })
-    */
+    });
+  
   }
 
   url = 'http://localhost:8080/pop-warehouse/pops/';
@@ -58,7 +61,9 @@ export class PopDashboardComponent implements OnInit {
   }
 
   open(content: any){
-    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+    this.modalService.open(content, {
+      size: 'lg',
+      ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
@@ -81,6 +86,14 @@ export class PopDashboardComponent implements OnInit {
       this.ngOnInit();
     });
     this.modalService.dismissAll();
+  }
+
+  openEdit(targetModal: any, pop: Pop){
+    this.modalService.open(targetModal, {
+      centered: true,
+      backdrop: 'static',
+      size: 'lg'
+    })
   }
 /*
   findAll(): Observable<Pop[]>{

@@ -8,6 +8,7 @@ import { PopDashboardComponent } from './pop-dashboard/pop-dashboard.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HomeComponent } from './home/home.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { HomeComponent } from './home/home.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    NgbModule
+    NgbModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
